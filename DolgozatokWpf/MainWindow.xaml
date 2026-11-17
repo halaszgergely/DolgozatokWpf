@@ -16,6 +16,19 @@
             <DataGrid x:Name="dgAdatok" Margin="10"/>
         </StackPanel>
 
-        <StackPanel Grid.Row="1"></StackPanel>
+        <StackPanel Grid.Row="1">
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Név:" Margin="10"/>
+                <TextBox x:Name="tbName" Margin="10" MinWidth="150"/>
+                <Label Content="Életkor:" Margin="10"/>
+                <TextBox x:Name="tbAge" Margin="10" MinWidth="150"/>
+                <Label Content="Pontszám:" Margin="10"/>
+                <TextBox x:Name="tbPoints" Margin="10" MinWidth="150"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="btnAdd" Content="Hozzáadás" Margin="10" MinWidth="150" Click="btnAdd_Click"/>
+                <Button x:Name="btnSave" Content="Mentés" Margin="10" MinWidth="150" Click="btnSave_Click"/>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Window>
