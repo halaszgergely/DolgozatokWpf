@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.IO;
+using System.Windows;
 
 namespace DolgozatokWpf
 {
@@ -44,12 +45,24 @@ namespace DolgozatokWpf
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-            var nev = tbName.Text;
+            string nev = tbName.Text;
+            int eletkor = Convert.ToInt32(tbAge.Text);
+            int pontszam = Convert.ToInt32(tbPoints.Text);
+            Dolgozatok result = new Dolgozatok(nev, eletkor, pontszam);
+            dolgozatok.Add(result);
+            dgAdatok.Items.Refresh();
         }
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
+            List<string> sorok = new List<string>();
 
+            foreach (var item in dolgozatok)
+            {
+                sorok.Add($"{item.Nev};{item.Eletkor};{item.Pontszam}");
+            }
+
+            File.WriteAllLines("dolgozatok.txt", sorok);
         }
     }
 }
