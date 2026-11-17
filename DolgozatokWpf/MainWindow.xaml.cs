@@ -63,6 +63,8 @@ namespace DolgozatokWpf
             }
 
             File.WriteAllLines("dolgozatok.txt", sorok);
+
+            MessageBox.Show("sikeres mentés");
         }
     }
 }
